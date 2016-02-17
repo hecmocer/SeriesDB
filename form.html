@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Nueva serie</title>
+</head>
+<body>
+	<h1>Nueva serie</h1>
+	<form novalidate>
+		<div>
+			<input type="text" id="title" name="title" placeholder="Título de la serie" required>
+		</div>
+		<div>
+			<input type="url" id="cover_url" name="cover_url" placeholder="URL de la imagen de portada/" pattern="^https?://[a-z0-9]+\.[a-z0-9]+/.+">
+		</div>
+		<div>
+			<textarea id="plot" name="plot" placeholder="Argumento de la serie"></textarea>
+		</div>
+		<div>
+			<label for="date">Fecha de primera emisión</label>
+			<input type="date" id="date" name="date" required>
+		</div>
+		<div>
+			<h4>Categorías</h4>
+			<ul>
+				<li>
+					<label>
+						<input type="checkbox" name="category" value="Drama">Drama
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="category" value="Action">Acción
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="category" value="Humor">Comedia
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="category" value="Sci-Fi">Ciencia Ficción
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="category" value="Sports">Deportes
+					</label>
+				</li>
+			</ul>
+			<h4>Clasificación por edad</h4>
+			<ul>
+				<li>
+					<label>
+						<input type="radio" name="age_cal" value="all" required>Todos los públicos
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="radio" name="age_cal" value="gt7" required>Mayores de 7 años
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="radio" name="age_cal" value="gt12" required>Mayores de 12 años
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="radio" name="age_cal" value="gt18" required>Mayores de 18 años
+					</label>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h4>Puntuación</h4>
+			<input type="range" id="rating" name="rating" min="0" max="10" step="1" value="0">
+		</div>
+		<div>
+			<button type="submit">Crear serie</button>
+		</div>
+	</form>
+</body>
+</html>
