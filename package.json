@@ -1,0 +1,24 @@
+{
+  "name": "seriesdb",
+  "version": "0.1.0",
+  "description": "Clone of The Movies Database to learn HTML5, CSS3 and Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hecmocer/SeriesDB.git"
+  },
+  "author": "Hecmocer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hecmocer/SeriesDB/issues"
+  },
+  "homepage": "https://github.com/hecmocer/SeriesDB#readme",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

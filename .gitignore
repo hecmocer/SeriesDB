@@ -1,0 +1,8 @@
+# Node modules
+node_modules/
+
+# Archivos del SO
+.DS_Store
+
+# CSS
+style.css
