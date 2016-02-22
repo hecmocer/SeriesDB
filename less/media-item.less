@@ -1,3 +1,48 @@
 .media.item {
-    img { .img-responsive(); }
+    height: 250px;
+    margin-bottom: 50px;
+    overflow-y: hidden;
+    .cover {
+        overflow: hidden;
+    }
+    &:hover{
+        img {
+            transform: scale(1.1);
+        }
+    }
+    .link{
+        color: @main-text-color;
+    }
+    img {
+        transition: transform 750ms;
+        .img-responsive();
+    }
+    .wrapper {
+        margin: 0 50px 0px 17px;
+    }
+    .title{
+        font-size: 24px;
+        margin: 0 0 15px 0;
+    }
+    .categories ul{
+        .horizontal-list();
+        li:after { //Despues del texto de las categorias, meter una coma
+            content: ",";
+        }
+        li:last-child:after{ //Si no fuera after, te cargas el nombre de la categoria
+            content: ".";
+        }
+    }
+    .release.date{
+        &:before{
+            content: "Año: "
+        }
+    }
+    .rating{
+        display: inline;
+        margin-left: 20px;
+        &:before{
+            content: "puntuación: ";
+        }
+    }
 }
