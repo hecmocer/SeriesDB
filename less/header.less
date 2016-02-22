@@ -1,0 +1,48 @@
+.web.header {
+    background: @header-color;
+    .brand{
+        font-size: 35px;
+        font-family: @font-family-header;
+        text-align: center;
+        margin-top: 5px;
+        transition: margin 250ms;
+        &:hover{
+            margin-left: 6px;
+        }
+    }
+    .main.menu {
+        ul {
+            .horizontal-list();
+            text-align: center;
+            margin-left: 4px;
+            li { margin-left: -4px; }
+            a {
+                text-decoration: none; //quitarle el subrayado a los enlaces
+                display: inline-block;
+                color: white;
+                background: @header-background;
+                padding: 14px 14px;
+                transition: background 250ms;
+                &:hover{
+                    background: @header-background-hover;
+                }
+                //background: darken(@header-color, 30%); //Usando mismo color pero con funcion darken
+            }
+        }
+        .if-is-mobile({
+            display: none;
+            });
+    }
+    .form.search{
+        margin-top: 11px;
+        .if-is-mobile({
+            display: none;
+            }); }
+    }
+
+    .list.header.title{
+        font-size: 35px;
+        text-align: center;
+    //text-shadow: 2px 4px #CFF09E;
+    text-shadow: 2px 2px white, 2px 4px #777;
+}

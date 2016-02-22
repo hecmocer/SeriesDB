@@ -2,38 +2,66 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Series DB</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header class="web header">
-        <div class="brand">Series DB</div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#" title="Sistema de recomendación de series y películas a tu gusto">Descubrir</a>
-                </li>
-                <li>
-                    <a href="#" title="Catálogo de películas">Películas</a>
-                </li>
-                <li>
-                    <a href="#" title="Catálogo de películas">Series</a>
-                </li>
-                <li>
-                    <a href="#" title="Listado de actores y actrices de series y películas">Actores y actrices</a>
-                </li>
-            </ul>
-        </nav>
-        <form class="search form">
-            <input type="hidden" name="oculto" value="Lorem Ipsum">
-            <input type="search" id="search" name="q" placeholder="Buscar...">
-            <button type="search">Buscar</button>
-        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="brand">Series DB</div>
+                </div>
+                <div class="col-6">
+                    <nav class="main menu">
+                        <ul>
+                            <li>
+                            </li>
+                            <a href="#" title="Sistema de recomendación de series y películas a tu gusto">Descubrir</a>
+                            <li>
+                                <a href="#" title="Catálogo de películas">Películas</a>
+                            </li>
+                            <li>
+                                <a href="#" title="Catálogo de películas">Series</a>
+                            </li>
+                            <li>
+                                <a href="#" title="Listado de actores y actrices de series y películas">Actores y actrices</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-3">
+                    <form class="search form">
+                        <input type="hidden" name="oculto" value="Lorem Ipsum">
+                        <input type="search" id="search" name="q" placeholder="Buscar...">
+                        <button type="search">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </header>
     <main class="web main series media item detail">
-                    <header class="series media header">
-                        <h1 class="series media title">Supernatural</h1>
+        <div class="container">
+            <header class="series media header">
+                <h1 class="series media title">Supernatural</h1>
+            </header>
+            <div class="row">
+                <div class="col-2">
+                    <div class="cover">
                         <img src="https://image.tmdb.org/t/p/w185/3iFm6Kz7iYoFaEcj4fLyZHAmTQA.jpg" alt="Supernatural wrestle your demons" title="Carátula de Supernatural">
-                    </header>
+                    </div>
+                    <div class="meta">
+                        <time class="release date" datetime="2015-03-12">2005</time>
+                        <div class="rating">7.1</div>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="video-wrapper">
+                        <video class="video trailer" controls autoplay poster="https://image.tmdb.org/t/p/w185/3iFm6Kz7iYoFaEcj4fLyZHAmTQA.jpg">
+                            <source src="http://movietrailers.apple.com/movies/wb/batmanvsuperman/batmanvssuperman-us-tlr4_i320.m4v" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="meta">
                         <div class="categories">
                             <ul>
@@ -41,22 +69,21 @@
                                 <li>Misterio</li>
                             </ul>
                         </div>
-                        <time class="release date" datetime="2015-03-12">2005</time>
-                        <div class="rating">7.1</div>
                     </div>
-                    <p class="overview">
-                        Cuando eran niños, Sam y Dean Winchester, perdieron a su madre debido a una misteriosa y demoníaca fuerza supernatural. Posteriormente, su padre los crió para que…
-                    </p>
-                    <video class="video trailer" controls poster="https://image.tmdb.org/t/p/w185/3iFm6Kz7iYoFaEcj4fLyZHAmTQA.jpg">
-                        <source src="http://movietrailers.apple.com/movies/wb/batmanvsuperman/batmanvssuperman-us-tlr4_i320.m4v" type="video/mp4">
-                    </video>
-    </main>
-    <footer class="web footer">
-        <nav>
-            <a href="#">Aviso legal</a>
-            <a href="#">Política de cookies</a>
-            <a href="#" class="go top">Volver arriba</a>
-        </nav>
-    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="overview">
+         Cuando eran niños, Sam y Dean Winchester, perdieron a su madre debido a una misteriosa y demoníaca fuerza supernatural. Posteriormente, su padre los crió para que fueran soldados. Él les enseño sobre el mal que vive en los rincones obscuros y en las carreteras secundarias de América... y también les enseñó como matarlo. Ahora los hermanos Winchester recorren el país en su Chevy Impala del '67, luchando contra todo tipo de amenaza sobrenatural que encuentran en el camino.
+     </p>
+ </main>
+ <footer class="web footer">
+     <nav>
+         <a href="#">Aviso legal</a>
+         <a href="#">Política de cookies</a>
+         <a href="#" class="go top">Volver arriba</a>
+     </nav>
+ </footer>
 </body>
 </html>

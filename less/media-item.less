@@ -1,0 +1,51 @@
+.media.item {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #ccc;
+    .cover:hover{
+        box-shadow: 2px 2px #ccc;
+    }
+    .link{
+        color: @main-text-color;
+    }
+    .wrapper {
+        margin: 0 50px 0px 17px;
+    }
+    .title{
+        font-size: 24px;
+        margin: 0 0 15px 0;
+    }
+    .categories ul{
+        .horizontal-list();
+        li:after { //Despues del texto de las categorias, meter una coma
+            content: ",";
+        }
+        li:last-child:after{ //Si no fuera after, te cargas el nombre de la categoria
+            content: ".";
+        }
+    }
+    .release.date{
+        &:before{
+            content: "Año: "
+        }
+    }
+    .rating{
+        display: inline;
+        margin-left: 13px;
+        &:before{
+            content: "Puntuación: ";
+        }
+    }
+    .video-wrapper{
+            perspective: 1000px;
+        }
+    .video{
+        animation: bounceInDown 2s;
+        width: 100%;
+        height: 301px;
+        background: black;
+        transform: rotateY(-25deg);
+    }
+}
