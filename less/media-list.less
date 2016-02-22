@@ -1,0 +1,15 @@
+.media.list {
+    .media.item {
+        height: 200px;
+        overflow: hidden;
+        &:hover{
+            img {
+                transform: scale(1.1);
+            }
+        }
+        img {
+            transition: transform 750ms;
+            .img-responsive();
+        }
+    }
+}
