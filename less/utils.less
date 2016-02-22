@@ -23,3 +23,9 @@
   width: 100%;
   max-width: 100%;
 }
+
+.if-is-mobile(@rules){
+  @media screen and (max-width: (@desktop-width - 1)){
+    @rules();
+  }
+}

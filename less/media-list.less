@@ -2,6 +2,9 @@
     .media.item {
         height: 200px;
         overflow: hidden;
+        .if-is-mobile({
+            height: auto;
+            });
         &:hover{
             img {
                 transform: scale(1.1);
