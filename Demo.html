@@ -41,6 +41,14 @@
 
     <button id="changeBackgroundColor">Cambiar color de fondo</button>
 
+    <br>
+    <br>
+
+    <div id="counter">0</div>
+    <button id="startbutton">Start</button>
+    <button id="stopbutton" disabled>Stop</button>
+    <button id="resetbutton" disabled>Reset</button>
+
     <script>
     //Primera parte
     function updateDate(event){
@@ -107,6 +115,46 @@
             timeoutID = null;
         }, 1500);
         console.log("3. El timeout ya está puesto");
+    });
+
+    //Sexta parte
+    var intervalID = null;
+
+    document.getElementById('resetbutton').addEventListener('click', function(){
+        document.getElementById('counter').innerHTML = 0;
+
+        document.getElementById('startbutton').disabled = false;
+        document.getElementById('stopbutton').disabled = true;
+        document.getElementById('resetbutton').disabled = true;
+    });
+
+    document.getElementById('stopbutton').addEventListener('click', function(){
+        if(intervalID != null){
+            clearInterval(intervalID);
+            intervalID = null;
+        }
+
+        document.getElementById('startbutton').disabled = false;
+        document.getElementById('stopbutton').disabled = true;
+        document.getElementById('resetbutton').disabled = false;
+    });
+
+    document.getElementById('startbutton').addEventListener('click', function(){
+        if (intervalID != null)
+            return;
+
+        document.getElementById('startbutton').disabled = true;
+        document.getElementById('stopbutton').disabled = false;
+        document.getElementById('resetbutton').disabled = true;
+
+        intervalID = setInterval(function(){
+            var counterValue = document.getElementById('counter').innerHTML;
+            if(isNaN(counterValue))
+                counterValue = 0;
+            counterValue = parseInt(counterValue);
+            counterValue++;
+            document.getElementById('counter').innerHTML = counterValue;
+        }, 50)
     });
     </script>
 </body>
