@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playground</title>
+</head>
+<body>
+    <div id="demo">First click on the button or write something in this line</div>
+    <br>
+    <button id="saveButton">Save</button>
+    <br>
+    <br>
+
+    <!-- DO NOT DO THIS<button onclick="document.getElementById('demo').innerHTML=new Date()">Update date</button> -->
+
+    <!-- DO NOT DO THIS EITHER<button onclick="updateDate()">Update date</button>
+    <script>
+        function updateDate(){
+            document.getElementById('demo').innerHTML = new Date();
+        }
+    </script> -->
+
+    <button id="updateDateButton">Update date</button>
+    <button id="addListenerButton">Add Listener</button>
+    <button id="removeListenerButton">Remove Listener</button>
+    <br>
+    <br>
+
+    <!-- div#container>div#content{this is the content} + tab para emmet !-->
+    <div id="container" style="background: gold; padding: 20px;">
+        <div id="content" style="background: coral; padding: 20px">this is the content</div>
+    </div>
+
+    <br>
+    <br>
+    <a href="http://www.google.com/" target="_blank">Ir a Google</a>
+    <!-- target _self o _blank para abrir la ventana en misma o nueva pestaña< !-->
+
+    <br>
+    <br>
+
+    <button id="changeBackgroundColor">Cambiar color de fondo</button>
+
+    <br>
+    <br>
+
+    <div id="counter">0</div>
+    <button id="startbutton">Start</button>
+    <button id="stopbutton" disabled>Stop</button>
+    <button id="resetbutton" disabled>Reset</button>
+
+    <script>
+    //Primera parte
+    function updateDate(event){
+        //debugger; <-- para entrar en modo debug
+        console.log("updateDate", arguments);
+        document.getElementById('demo').innerHTML = new Date();
+    }
+
+    document.getElementById('addListenerButton').addEventListener('click', function(){
+        console.log("addListenerButton", arguments)
+        document.getElementById('updateDateButton').addEventListener('click', updateDate)});
+
+    document.getElementById('removeListenerButton').addEventListener('click', function(){
+        console.log("removeListenerButton", arguments)
+        document.getElementById('updateDateButton').removeEventListener('click', updateDate)});
+
+    document.getElementById('demo').contentEditable = true;
+
+    //Segunda parte
+    document.getElementById('saveButton').addEventListener('click', function(evt){
+        console.log("Contenido", document-getElementById('demo').innerHTML);
+    })
+
+    //Tercera parte
+    document.getElementById('container').addEventListener('click', function(event){
+        console.log("CONTAINER clicked");
+    }, true)
+
+    document.getElementById('content').addEventListener('click', function(event){
+        //event.stopPropagation(); //Para la propagación hacia arriba
+        console.log("CONTENT clicked");
+    })
+
+    document.body.addEventListener('click', function(event){
+        console.log("BODY clicked");
+    }, true)
+
+    //Cuarta Parte
+    document.getElementsByTagName("a")[0].addEventListener('click', function(event){
+        console.log("Google link");
+        event.preventDefault();
+    });
+
+    //Quinta parte
+    document.body.style.transition = 'background-color 750ms';
+
+    var timeoutID = null;
+
+    document.getElementById('changeBackgroundColor').addEventListener('click', function(event){
+        console.log("1. Hago click en el botón");
+
+        if(timeoutID != null){
+            clearTimeout(timeoutID); // cancela el timeout anterior
+        }
+
+        timeoutID = setTimeout(function(){
+            console.log("2. Termina timeout y cambio color");
+            var currentColor = document.body.style.backgroundColor;
+            if(currentColor == 'whitesmoke'){
+                document.body.style.backgroundColor = 'yellowgreen';
+            } else{
+                document.body.style.backgroundColor = 'whitesmoke';
+            }
+            timeoutID = null;
+        }, 1500);
+        console.log("3. El timeout ya está puesto");
+    });
+
+    //Sexta parte
+    var intervalID = null;
+
+    document.getElementById('resetbutton').addEventListener('click', function(){
+        document.getElementById('counter').innerHTML = 0;
+
+        document.getElementById('startbutton').disabled = false;
+        document.getElementById('stopbutton').disabled = true;
+        document.getElementById('resetbutton').disabled = true;
+    });
+
+    document.getElementById('stopbutton').addEventListener('click', function(){
+        if(intervalID != null){
+            clearInterval(intervalID);
+            intervalID = null;
+        }
+
+        document.getElementById('startbutton').disabled = false;
+        document.getElementById('stopbutton').disabled = true;
+        document.getElementById('resetbutton').disabled = false;
+    });
+
+    document.getElementById('startbutton').addEventListener('click', function(){
+        if (intervalID != null)
+            return;
+
+        document.getElementById('startbutton').disabled = true;
+        document.getElementById('stopbutton').disabled = false;
+        document.getElementById('resetbutton').disabled = true;
+
+        intervalID = setInterval(function(){
+            var counterValue = document.getElementById('counter').innerHTML;
+            if(isNaN(counterValue))
+                counterValue = 0;
+            counterValue = parseInt(counterValue);
+            counterValue++;
+            document.getElementById('counter').innerHTML = counterValue;
+        }, 50)
+    });
+    </script>
+</body>
+</html>

@@ -1,11 +1,22 @@
 .media.list {
     .media.item {
         height: 200px;
-        overflow: hidden;
+        .cover{
+            overflow: hidden;
+        }
         .if-is-mobile({
             height: auto;
             });
         &:hover{
+            .title {
+                color: lightgreen;
+                text-shadow: 2px 3px black;
+                transition: text-shadow 100ms;
+                transition: color 500ms;
+                // &:after{
+                //     content: " {--";
+                // }
+            }
             img {
                 transform: scale(1.1);
             }
