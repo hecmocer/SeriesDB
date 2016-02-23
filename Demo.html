@@ -5,7 +5,11 @@
     <title>Playground</title>
 </head>
 <body>
-    <div id="demo">First click on the button</div>
+    <div id="demo">First click on the button or write something in this line</div>
+    <br>
+    <button id="saveButton">Save</button>
+    <br>
+    <br>
 
     <!-- DO NOT DO THIS<button onclick="document.getElementById('demo').innerHTML=new Date()">Update date</button> -->
 
@@ -34,6 +38,11 @@
         console.log("removeListenerButton", arguments)
         document.getElementById('updateDateButton').removeEventListener('click', updateDate)});
 
+    document.getElementById('demo').contentEditable = true;
+
+    document-getElementById('saveButton').addEventListener('click', function(evt){
+        console.log("Contenido", document-getElementById('demo').innerHTML);
+    })
     </script>
 </body>
 </html>
