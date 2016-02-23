@@ -23,7 +23,16 @@
     <button id="updateDateButton">Update date</button>
     <button id="addListenerButton">Add Listener</button>
     <button id="removeListenerButton">Remove Listener</button>
+    <br>
+    <br>
+
+    <!-- div#container>div#content{this is the content} + tab para emmet !-->
+    <div id="container" style="background: gold; padding: 20px;">
+        <div id="content" style="background: coral; padding: 20px">this is the content</div>
+    </div>
+
     <script>
+    //Primera parte
     function updateDate(event){
         //debugger; <-- para entrar en modo debug
         console.log("updateDate", arguments);
@@ -40,8 +49,22 @@
 
     document.getElementById('demo').contentEditable = true;
 
-    document-getElementById('saveButton').addEventListener('click', function(evt){
+    //Segunda parte
+    document.getElementById('saveButton').addEventListener('click', function(evt){
         console.log("Contenido", document-getElementById('demo').innerHTML);
+    })
+
+    //Tercera parte
+    document.getElementById('container').addEventListener('click', function(event){
+        console.log("CONTAINER clicked");
+    })
+
+    document.getElementById('content').addEventListener('click', function(event){
+        console.log("CONTENT clicked");
+    })
+
+    document.body.addEventListener('click', function(event){
+        console.log("BODY clicked");
     })
     </script>
 </body>
