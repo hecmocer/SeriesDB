@@ -31,6 +31,11 @@
         <div id="content" style="background: coral; padding: 20px">this is the content</div>
     </div>
 
+    <br>
+    <br>
+    <a href="http://www.google.com/" target="_blank">Ir a Google</a>
+    <!-- target _self o _blank para abrir la ventana en misma o nueva pestaña< !-->
+
     <script>
     //Primera parte
     function updateDate(event){
@@ -56,16 +61,23 @@
 
     //Tercera parte
     document.getElementById('container').addEventListener('click', function(event){
-        console.log("CONTAINER clicked");
-    })
+    console.log("CONTAINER clicked");
+    }, true)
 
     document.getElementById('content').addEventListener('click', function(event){
+        //event.stopPropagation(); //Para la propagación hacia arriba
         console.log("CONTENT clicked");
     })
 
     document.body.addEventListener('click', function(event){
         console.log("BODY clicked");
-    })
+    }, true)
+
+    //Cuarta Parte
+    document.getElementsByTagName("a")[0].addEventListener('click', function(event){
+        console.log("Google link");
+        event.preventDefault();
+    });
     </script>
 </body>
 </html>
