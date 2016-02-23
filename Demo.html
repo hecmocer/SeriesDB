@@ -36,6 +36,11 @@
     <a href="http://www.google.com/" target="_blank">Ir a Google</a>
     <!-- target _self o _blank para abrir la ventana en misma o nueva pestaña< !-->
 
+    <br>
+    <br>
+
+    <button id="changeBackgroundColor">Cambiar color de fondo</button>
+
     <script>
     //Primera parte
     function updateDate(event){
@@ -61,7 +66,7 @@
 
     //Tercera parte
     document.getElementById('container').addEventListener('click', function(event){
-    console.log("CONTAINER clicked");
+        console.log("CONTAINER clicked");
     }, true)
 
     document.getElementById('content').addEventListener('click', function(event){
@@ -77,6 +82,31 @@
     document.getElementsByTagName("a")[0].addEventListener('click', function(event){
         console.log("Google link");
         event.preventDefault();
+    });
+
+    //Quinta parte
+    document.body.style.transition = 'background-color 750ms';
+
+    var timeoutID = null;
+
+    document.getElementById('changeBackgroundColor').addEventListener('click', function(event){
+        console.log("1. Hago click en el botón");
+
+        if(timeoutID != null){
+            clearTimeout(timeoutID); // cancela el timeout anterior
+        }
+
+        timeoutID = setTimeout(function(){
+            console.log("2. Termina timeout y cambio color");
+            var currentColor = document.body.style.backgroundColor;
+            if(currentColor == 'whitesmoke'){
+                document.body.style.backgroundColor = 'yellowgreen';
+            } else{
+                document.body.style.backgroundColor = 'whitesmoke';
+            }
+            timeoutID = null;
+        }, 1500);
+        console.log("3. El timeout ya está puesto");
     });
     </script>
 </body>
