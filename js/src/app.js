@@ -30,7 +30,23 @@ $(document).ready(function(){ // Cuando la página se ha cargado por completo
             return false;
         }
 
-        return true; // Jquery permite envio del formulario
+        $.ajax({
+            url: "/api/series/",
+            data: JSON.stringify({
+                title: title,
+                url: url,
+            }),
+            contentType: 'application/json',
+            method: 'POST',
+            success: function(){
+                alert("Guardado con éxito!");
+            },
+            error: function(){
+                alert("Se ha producido un error");
+            }
+        });
+
+        return false;
 
     });
 });
