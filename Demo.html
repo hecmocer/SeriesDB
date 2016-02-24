@@ -49,6 +49,12 @@
     <button id="stopbutton" disabled>Stop</button>
     <button id="resetbutton" disabled>Reset</button>
 
+    <br>
+    <br>
+
+    <button id="getDataButton">Get data</button>
+    <div id="content2"></div>
+
     <script>
     //Primera parte
     function updateDate(event){
@@ -156,6 +162,24 @@
             document.getElementById('counter').innerHTML = counterValue;
         }, 50)
     });
+
+    //Sexta Parte
+
+    document.getElementById('getDataButton').addEventListener('click', function(){
+
+        console.log("Configuro XMLHttpRequest");
+        var xhr = new XMLHttpRequest(); //Creamos el objeto XMLHttpRequest
+        xhr.open("GET", "/index.html", true); //El valor true indica que es asíncrono
+
+        xhr.onreadystatechange = function() { //Define la configuración del comportamiento
+            console.log("onreadystatechange", arguments); //Para evitar ver la documentación y ver los parámetros de la función
+            document.getElementById('content2').innerHTML = this.responseText;
+        }
+        xhr.send();
+        console.log("Envío XMLHttpRequest");
+
+    })
+
     </script>
 </body>
 </html>
