@@ -1,0 +1,25 @@
+{
+  "name": "seriesdb",
+  "description": "Clone of The Movies Database to learn HTML5, CSS3 and Javascript",
+  "main": "index.js",
+  "authors": [
+    "Hecmocer"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/hecmocer/SeriesDB",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6"
+  }
+}
