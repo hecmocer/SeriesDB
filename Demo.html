@@ -54,6 +54,7 @@
 
     <button id="getDataButton">Get data</button>
     <div id="content2"></div>
+    <div id="content3"></div>
 
     <script>
     //Primera parte
@@ -173,6 +174,17 @@
 
         xhr.onreadystatechange = function() { //Define la configuración del comportamiento
             console.log("onreadystatechange", arguments); //Para evitar ver la documentación y ver los parámetros de la función
+            document.getElementById('content3').innerHTML = this.responseText;
+        }
+        xhr.send();
+        console.log("Envío XMLHttpRequest");
+
+        console.log("Configuro XMLHttpRequest2");
+        var xhr = new XMLHttpRequest(); //Creamos el objeto XMLHttpRequest
+        xhr.open("GET", "/data.json", true); //El valor true indica que es asíncrono
+
+        xhr.onreadystatechange = function() { //Define la configuración del comportamiento
+            console.log("onreadystatechange", arguments); //Para evitar ver la documentación y ver los parámetros de la función
             document.getElementById('content2').innerHTML = this.responseText;
         }
         xhr.send();
@@ -180,6 +192,6 @@
 
     })
 
-    </script>
+</script>
 </body>
 </html>
