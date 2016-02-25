@@ -9,3 +9,9 @@ style.css
 
 # Bower components
 bower_components/
+
+# Base de datos
+db/
+
+# Python
+*.py
