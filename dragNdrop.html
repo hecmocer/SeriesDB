@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag & Drop</title>
+
+<style type="text/css">
+    body{
+        background: ghostwhite;
+    }
+    .drag{
+        width: 100px;
+        height:100px;
+        background: gold;
+        margin-right: 10px;
+        margin-top: 5px;
+        float: left;
+    }
+    .drag.draggedStart{
+        background: yellow;
+    }
+    #drop{
+        width: 100%;
+        height: 200px;
+        background: lightblue;
+        position: fixed;
+        top: 550px;
+        bottom: 0px;
+        border: dotted;
+        transition: background 250ms;
+    }
+    #drop.ok {
+        background: lightgreen;
+        border: dashed;
+        }
+    #drop.error {
+        background: tomato;
+        border: solid;
+    }
+</style>
+
+</head>
+<body>
+<div>
+<div class="drag" draggable="true" data-movie-id="0">0</div>
+</div>
+<br>
+<div style="margin-top: 100px">
+<div class="drag" draggable="true" data-movie-id="Q">Q</div>
+<div class="drag" draggable="true" data-movie-id="W">W</div>
+<div class="drag" draggable="true" data-movie-id="E">E</div>
+<div class="drag" draggable="true" data-movie-id="R">R</div>
+<div class="drag" draggable="true" data-movie-id="T">T</div>
+<div class="drag" draggable="true" data-movie-id="Y">Y</div>
+<div class="drag" draggable="true" data-movie-id="U">U</div>
+<div class="drag" draggable="true" data-movie-id="I">I</div>
+<div class="drag" draggable="true" data-movie-id="O">O</div>
+<div class="drag" draggable="true" data-movie-id="P">P</div>
+</div>
+<br>
+<div style="margin-top: 100px; margin-left: 25px">
+<div class="drag" draggable="true" data-movie-id="A">A</div>
+<div class="drag" draggable="true" data-movie-id="S">S</div>
+<div class="drag" draggable="true" data-movie-id="D">D</div>
+<div class="drag" draggable="true" data-movie-id="F">F</div>
+<div class="drag" draggable="true" data-movie-id="G">G</div>
+<div class="drag" draggable="true" data-movie-id="H">H</div>
+<div class="drag" draggable="true" data-movie-id="J">J</div>
+<div class="drag" draggable="true" data-movie-id="K">K</div>
+<div class="drag" draggable="true" data-movie-id="L">L</div>
+<div class="drag" draggable="true" data-movie-id="Ñ">Ñ</div>
+</div>
+<br>
+<div style="margin-top: 100px; margin-left: 80px">
+<div class="drag" draggable="true" data-movie-id="Z">Z</div>
+<div class="drag" draggable="true" data-movie-id="X">X</div>
+<div class="drag" draggable="true" data-movie-id="C">C</div>
+<div class="drag" draggable="true" data-movie-id="V">V</div>
+<div class="drag" draggable="true" data-movie-id="B">B</div>
+<div class="drag" draggable="true" data-movie-id="N">N</div>
+<div class="drag" draggable="true" data-movie-id="M">M</div>
+</div>
+<div id="drop" style="font-size: 4em"></div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+<script>
+
+var draggedMovieId = null;
+
+$(".drag").on("dragstart", function(evt){
+
+    console.log("DRAG START", evt);
+    $(this).addClass("draggedStart");
+
+
+    // ponemos el id de la película seleccionada
+    draggedMovieId = $(this).data("movieId");
+    evt.originalEvent.dataTransfer.setData("movieId", draggedMovieId);
+
+}).on("dragend", function(evt){
+
+    console.log("DRAG END", evt);
+    draggedMovieId = null;
+    $(this).removeClass("draggedStart");
+
+});
+
+
+$("#drop").on("dragover", function(evt){ // Entra el ratón
+
+    evt.preventDefault();
+    console.log("DRAG OVER", evt, draggedMovieId);
+    if(draggedMovieId != "0"){
+        $(this).addClass("ok");
+    }
+    else{
+        $(this).addClass("error");
+    }
+
+}).on("dragleave", function(evt){ // Sale el ratón
+
+    evt.preventDefault();
+    console.log("DRAG LEAVE", evt);
+    $(this).removeClass("ok error");
+
+}).on("drop", function(evt){ // Dejamos caer el elemento
+
+    evt.preventDefault();
+    console.log("DROP", evt);
+
+    var movieId = evt.originalEvent.dataTransfer.getData("movieId");
+    if(movieId != "0"){
+        var text = $(this).text();
+        text += movieId;
+        $(this).text(text);
+    }
+
+    $(this).removeClass("ok error");
+
+});
+
+</script>
+
+</body>
+</html>
