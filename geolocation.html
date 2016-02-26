@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation</title>
+</head>
+<body>
+    <button id="requestButton">Detectar posición</button>
+    <div id="data">
+
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script>
+
+    $("#requestButton").on("click", function(){
+        console.log("coge click");
+        // Solicita la posición actual de manera asíncrona
+        var operationID = navigator.geolocation.watchPosition(
+            function(data){ // successHandler
+                console.log("Geolocalización conseguida", data);
+            },
+            function(error){ // errorHandler
+                console.error("Geolocalización fallida", error);
+
+            },
+            { // Opciones de configuración
+                enableHighAccuracy: true,
+                maximumAge: 0
+
+            }
+        )
+        console.log("Operation ID", operationID);
+    });
+    </script>
+
+</body>
+</html>
